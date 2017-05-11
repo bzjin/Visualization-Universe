@@ -1,0 +1,154 @@
+{
+  "charts": [{
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "pie chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 46,
+      "popularity-delta": -23,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "line graph", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 47,
+      "popularity-delta": -24,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "venn diagram", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 47,
+      "popularity-delta": -25,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "area graph", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 48,
+      "popularity-delta": -26,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bubble chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 49,
+      "popularity-delta": -27,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "lorem ipsum", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 50,
+      "popularity-delta": -28,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "scatterplot", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 51,
+      "popularity-delta": -29,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }
+
+  ], 
+  "books": [{
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "bar chart", 
+      "search-volume-5yr": [234, 34, 234],
+      "average-popularity": 45,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }
+
+  ]
+  
+}
+

@@ -23,13 +23,13 @@
 	<div class="col-md-10 col-md-offset-1">
 		<h1>Visualization Universe</h1>
 
-		<div id="charts" class="col-md-12">
-		<h2>Charts</h2>
+		<div id="books" class="col-md-12">
+		<h2>Books</h2>
 		sort by 
 		<button type="button" onclick="alphabetize()">name</button>
 		<button type="button" onclick="volume()">search volume</button>
 		<button type="button" onclick="delta()">change in search volume</button>
-		<div id="charts_boxes"></div>
+		<div id="books_boxes"></div>
 		</div>
 
 		<h2>Charts</h2>
@@ -40,7 +40,6 @@
 
 
 	<script src="javascript/app.js"></script>
-	<script src="javascript/sorting.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.2.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </html>
