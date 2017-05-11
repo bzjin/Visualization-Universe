@@ -1,0 +1,51 @@
+* {
+  transform-origin: inherit ;
+}
+
+body {
+  background: white;
+  margin: 30px;
+  font-family: "Open Sans";
+}
+
+div {
+  position: relative;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+h1, h2, h3, h4, p { 
+  color: black;
+  font-family: "Raleway";
+
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+p { 
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "Open Sans";
+}
+
