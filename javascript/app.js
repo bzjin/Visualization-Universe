@@ -21,20 +21,63 @@ function makeGrids(data, type){
 		var div = document.createElement('div');
 		div.setAttribute('class', 'col-lg-2 col-md-3 col-sm-4 col-xs-6 grids ' + type + "grids"); 
 		div.setAttribute('id', fl + i); 
+
 		document.getElementById(type).appendChild(div);
 		//console.log(data[type][i].name)
 		$("div#"+fl+i).append("<img id='bimg"+i+"' src='assets/icons/pie-chart.png'>")
 		$("div#"+fl+i).append("<p>"+data[type][i].name+"</p>");
 		$("div#"+fl+i).append("<div class='progress'><div class='progress-bar' role='progressbar' aria-valuenow=" + data[type][i]["average-popularity"] +
 		  "aria-valuemin='0' aria-valuemax='100' style='width:" + data[type][i]["average-popularity"] + "%''><span class='sr-only'>70% Complete</span></div></div>");
+		
+		var linedata = [];
+		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
+			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
+		}
+
+		var svg = d3.select("#"+fl+i).append("svg")
+			.attr("height", 35);
+		var margin = {top: 5, right: 20, bottom: 5, left: 20},
+		    width = $("#"+fl+i).width() - margin.left - margin.right,
+		    height = 30,
+		    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var x = d3.scaleLinear()
+		    .range([margin.left, width - margin.right]);
+
+		var y = d3.scaleLinear()
+		    .range([height, 0]);
+
+  		x.domain(d3.extent(linedata, function(d) { return d.index; }));
+  		y.domain(d3.extent(linedata, function(d) { return d.value; }));
+
+  		console.log(d3.extent(linedata, function(d) { return d.value; }))
+		var line = d3.line()
+		    .x(function(d) { return x(d.index); })
+		    .y(function(d) { return y(d.value); })
+    		.curve(d3.curveBasis);
+
+		g.append("path")
+		      .datum(linedata)
+		      .attr("fill", "none")
+		      .attr("stroke", "grey")
+		      .attr("stroke-linejoin", "round")
+		      .attr("stroke-linecap", "round")
+		      .attr("stroke-width", 1.5)
+		      .attr("d", line);
+
+		g.append("circle")
+		      .attr("fill", "grey")
+		      .attr("r", 3)
+		      .attr("cx", x(linedata[0].index))
+		      .attr("cy", y(linedata[0].value))
+
 	}
 	var w = $("#"+fl+"1").width();
 	var h = $("#"+fl+"1").height();
 	var pos = $("#"+fl+"1").position();
 
 	d3.select("#alphabetize" + type).on("click", function(){
-		d3.selectAll("."+type+"grids").transition()
-			.style("opacity",0)
+		d3.selectAll("."+type+"grids")
 			.remove()
 
 		if (tf_alpha == 0) {
@@ -61,8 +104,7 @@ function makeGrids(data, type){
 	})
 
 	d3.select("#volume"+type).on("click", function(){
-		d3.selectAll("."+type+"grids").transition()
-			.style("opacity",0)
+		d3.selectAll("."+type+"grids")
 			.remove()
 
 
@@ -96,8 +138,7 @@ function makeGrids(data, type){
 	})
 
 	d3.select("#delta"+type).on("click", function(){
-		d3.selectAll("."+type+"grids").transition()
-			.style("opacity",0)
+		d3.selectAll("."+type+"grids")
 			.remove()
 
 
@@ -138,7 +179,7 @@ $(function() {
         //headers: '[Does something go here?]',
         success: function(data, status, xhr)
         {
-            console.log(data);
+            //console.log(data);
         },
         error: function(xhr, status, error)
         {

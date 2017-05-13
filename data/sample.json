@@ -1,7 +1,7 @@
 {
   "charts": [{
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -10,7 +10,7 @@
       }
     }, {
       "name": "pie chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 46,
       "popularity-delta": -23,
       "related-searches": {
@@ -19,7 +19,7 @@
       }
     }, {
       "name": "line graph", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 47,
       "popularity-delta": -24,
       "related-searches": {
@@ -28,7 +28,7 @@
       }
     }, {
       "name": "venn diagram", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 47,
       "popularity-delta": -25,
       "related-searches": {
@@ -37,7 +37,7 @@
       }
     }, {
       "name": "area graph", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 48,
       "popularity-delta": -26,
       "related-searches": {
@@ -46,7 +46,7 @@
       }
     }, {
       "name": "bubble chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 49,
       "popularity-delta": -27,
       "related-searches": {
@@ -55,7 +55,7 @@
       }
     }, {
       "name": "lorem ipsum", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 50,
       "popularity-delta": -28,
       "related-searches": {
@@ -64,7 +64,7 @@
       }
     }, {
       "name": "scatterplot", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 51,
       "popularity-delta": -29,
       "related-searches": {
@@ -76,7 +76,7 @@
   ], 
   "books": [{
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -85,7 +85,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -94,7 +94,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -103,7 +103,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -112,7 +112,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -121,7 +121,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -130,7 +130,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -139,7 +139,7 @@
       }
     }, {
       "name": "bar chart", 
-      "search-volume-5yr": [234, 34, 234],
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
