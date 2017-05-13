@@ -3,9 +3,10 @@
 }
 
 body {
-  background: white;
+  background: #260026;
   font-family: "Open Sans";
   text-align: center;
+  color: white;
 }
 
 div {
@@ -13,7 +14,6 @@ div {
 }
 
 h1, h2, h3, h4, p { 
-  color: black;
   font-family: "Raleway";
 }
 
@@ -74,6 +74,37 @@ button {
   transition: all 2s ease;
 }
 
-.transform-active {
-  opacity: 0;
+.scaleTL {
+  transform-origin: top left;
 }
+
+.scaleTR {
+  transform-origin: top right;
+}
+
+.scaleBL {
+  transform-origin: bottom left;
+}
+
+.scaleBR {
+  transform-origin: bottom left;
+}
+
+.transform-active {
+  transform: scale(0);
+}
+
+.type {
+  background-color: white;
+  color: black;
+  padding: 10px 20px 20px 20px;
+  margin: 10px;
+  clear: both;
+  overflow: hidden;
+}
+
+.chartgrids {
+  padding: 10px;
+}
+
+
