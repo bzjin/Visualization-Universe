@@ -8,7 +8,7 @@
 
 	<!-- D3 Library --> <script src="lib/d3.v4.min.js"></script>
     <!-- D3-Tip --> <script src="lib/d3-tip.js"></script>
-	<!-- Google Fonts --> <link href="styles/google-fonts.css" rel="stylesheet"> 
+	<!-- Google Fonts --> <link href="styles/google-fonts.css" rel="stylesheet">
   	<!-- Ajax -->   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<!-- Bootstrap--> <script src="lib/bootstrap.min.js"></script> <link rel="stylesheet" href="styles/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/app.css"/>
@@ -21,41 +21,53 @@
 
 		<div id="charts" class="col-md-12 type">
 		<h2>Charts</h2>
-		<div class="col-md-12">
-		sort by
-			<button type="button" id="alphabetizecharts">name</button>
-			<button type="button" id="volumecharts">search volume</button>
-			<button type="button" id="deltacharts">change in search volume</button>
+		<div class="col-md-12 grid">
+			<div id="sortscharts" class="button-group">  
+			sort by
+			<button class="button" data-sort-by="name">name</button>
+  			<button class="button" data-sort-by="volume">volume</button>
+  			<button class="button" data-sort-by="delta">volume change</button>
+			</div>
+			<div class="col-md-12 isotopescharts" id="chartsgrid"></div>
 		</div>
 		</div>
 
 		<div id="books" class="col-md-12 type">
 		<h2>Books</h2>
-		<div class="col-md-12">
-		sort by
-			<button type="button" id="alphabetizebooks">name</button>
-			<button type="button" id="volumebooks">search volume</button>
-			<button type="button" id="deltabooks">change in search volume</button>
+		<div class="col-md-12 grid">
+			<div id="sortsbooks" class="button-group">
+			sort by
+			<button class="button" data-sort-by="name">name</button>
+  			<button class="button" data-sort-by="volume">volume</button>
+  			<button class="button" data-sort-by="delta">volume change</button>
+			</div>
+			<div class="col-md-12 isotopesbooks" id="booksgrid"></div>
 		</div>
 		</div>
 
 		<div id="people" class="col-md-12 type">
 		<h2>People</h2>
-		<div class="col-md-12">
-		sort by
-			<button type="button" id="alphabetizepeople">name</button>
-			<button type="button" id="volumepeople">search volume</button>
-			<button type="button" id="deltapeople">change in search volume</button>
+		<div class="col-md-12 grid">
+			<div id="sorts" class="button-group">
+			sort by
+			<button class="button" data-sort-by="name">name</button>
+  			<button class="button" data-sort-by="volume">volume</button>
+  			<button class="button" data-sort-by="delta">volume change</button>
+			</div>
+			<div class="col-md-12 isotopes" id="peoplegrid"></div>
 		</div>
 		</div>
 
 		<div id="tools" class="col-md-12 type">
 		<h2>Tools</h2>
-		<div class="col-md-12">
-		sort by
-			<button type="button" id="alphabetizetools">name</button>
-			<button type="button" id="volumetools">search volume</button>
-			<button type="button" id="deltatools">change in search volume</button>
+		<div class="col-md-12 grid">
+			<div id="sorts" class="button-group">
+			sort by
+			<button class="button" data-sort-by="name">name</button>
+  			<button class="button" data-sort-by="volume">volume</button>
+  			<button class="button" data-sort-by="delta">volume change</button>
+			</div>
+			<div class="col-md-12 isotopes" id="toolsgrid"></div>
 		</div>
 		</div>
 
@@ -64,7 +76,6 @@
 
 
 	<script src="javascript/app.js"></script>
-	<script src="lib/vivus.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.2.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="lib/jquery.poptrox.min.js"></script>
@@ -72,4 +83,5 @@
 	<script src="javascript/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="javascript/main.js"></script>
+	<script src="lib/isotope.pkgd.js"></script> 
 </html>
