@@ -36,7 +36,7 @@
           "plot": 15
       }
     }, {
-      "name": "area graph", 
+      "name": "area chart", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 48,
       "popularity-delta": -26,
@@ -54,7 +54,7 @@
           "plot": 15
       }
     }, {
-      "name": "lorem ipsum", 
+      "name": "stacked bar chart", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 50,
       "popularity-delta": -28,
@@ -63,7 +63,7 @@
           "plot": 15
       }
     }, {
-      "name": "scatterplot", 
+      "name": "stream graph", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
       "average-popularity": 51,
       "popularity-delta": -29,

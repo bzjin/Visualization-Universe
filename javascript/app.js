@@ -23,23 +23,46 @@ function makeGrids(data, type){
 		div.setAttribute('id', fl + i); 
 
 		document.getElementById(type).appendChild(div);
-		//console.log(data[type][i].name)
-		$("div#"+fl+i).append("<img id='bimg"+i+"' src='assets/icons/pie-chart.png'>")
+		
+		var pngstring = "";
+		if (data[type][i].name.indexOf(' ') >= 0) {
+			pngstring = data[type][i].name.replace(/\s+/g, '-');
+		} else { pngstring = data[type][i].name}
+
+		var margin = {top: 5, right: 20, bottom: 5, left: 20},
+		    width = $("#"+fl+i).width() - margin.left - margin.right,
+		    height = 30;
+
+		/*var circle = d3.select("#"+fl+i).append("svg")
+			.attr("class", "circles")
+			.attr("width", width);
+
+		var bgcircle = circles.append("circle")
+		      .attr("id", "circle"+i)
+		      .attr("fill", "none")
+		      .attr("stroke", "#56435B")
+		      .attr("r", width/2 - 40)
+		      .attr("cx", 
+		      .attr("cy"
+		      .attr("d", line);*/
+
+		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
 		$("div#"+fl+i).append("<p>"+data[type][i].name+"</p>");
 		$("div#"+fl+i).append("<div class='progress'><div class='progress-bar' role='progressbar' aria-valuenow=" + data[type][i]["average-popularity"] +
 		  "aria-valuemin='0' aria-valuemax='100' style='width:" + data[type][i]["average-popularity"] + "%''><span class='sr-only'>70% Complete</span></div></div>");
 		
+		$('.circlebg').css({'height':$('.circlebg').width()+'px'});
+
 		var linedata = [];
 		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
 			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
 		}
 
 		var svg = d3.select("#"+fl+i).append("svg")
+			.attr("class", "lines")
 			.attr("height", 35);
-		var margin = {top: 5, right: 20, bottom: 5, left: 20},
-		    width = $("#"+fl+i).width() - margin.left - margin.right,
-		    height = 30,
-		    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		var x = d3.scaleLinear()
 		    .range([margin.left, width - margin.right]);
@@ -50,23 +73,23 @@ function makeGrids(data, type){
   		x.domain(d3.extent(linedata, function(d) { return d.index; }));
   		y.domain(d3.extent(linedata, function(d) { return d.value; }));
 
-  		console.log(d3.extent(linedata, function(d) { return d.value; }))
 		var line = d3.line()
 		    .x(function(d) { return x(d.index); })
 		    .y(function(d) { return y(d.value); })
     		.curve(d3.curveBasis);
 
-		g.append("path")
+		var sparks = g.append("path")
 		      .datum(linedata)
+		      .attr("id", "line"+i)
 		      .attr("fill", "none")
-		      .attr("stroke", "grey")
+		      .attr("stroke", "#FDBD00")
 		      .attr("stroke-linejoin", "round")
 		      .attr("stroke-linecap", "round")
 		      .attr("stroke-width", 1.5)
 		      .attr("d", line);
 
 		g.append("circle")
-		      .attr("fill", "grey")
+		      .attr("fill", "#FDBD00")
 		      .attr("r", 3)
 		      .attr("cx", x(linedata[0].index))
 		      .attr("cy", y(linedata[0].value))
@@ -79,7 +102,6 @@ function makeGrids(data, type){
 	d3.select("#alphabetize" + type).on("click", function(){
 		d3.selectAll("."+type+"grids")
 			.remove()
-
 		if (tf_alpha == 0) {
 			data[type].sort(function(a,b) { 
 			    var nameA = a.name;
@@ -100,6 +122,7 @@ function makeGrids(data, type){
 			tf_alpha = 0; 
 		}
 
+		
 	makeGrids(data, type)
 	})
 
