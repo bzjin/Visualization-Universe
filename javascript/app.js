@@ -16,6 +16,57 @@ var tf_vol = 0;
 var tf_delta = 0; 
 
 function makeGrids(data, type){
+	//Make key
+	var key = d3.select("#"+type+"key").append("svg")
+			.attr("class", "key")
+			.attr("height", 35)
+			.attr("width", "100%")
+			.style("overflow", "visible");
+
+	key.append("text")
+		.text("popularity change over the last year")
+		.style("fill", "#FDBD00")
+		.attr("x", 20)
+		.attr("y", 20)
+		.attr("font-weight", 300)
+
+	key.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#FDBD00")
+      .attr("stroke-width", "5px")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("d", "M74,117,91,105,112,123,131,120,148,96,168,124,190,79,208,96,226,120,246,69,264,58,282,76")
+      .attr("transform", "translate(-190, -75)scale(.25)");
+
+     key.append("circle")
+     	.attr("r", 3)
+     	.attr("cx", -40)
+     	.attr("cy", 25)
+     	.attr("fill","#FDBD00")
+
+     key.append("text")
+		.text("average popularity")
+		.style("fill", "#FDBD00")
+		.attr("x", $("#"+type+"key").width() + 20)
+		.attr("y", 20)
+		.attr("font-weight", 300)
+		.style("text-anchor", "end")
+
+	 key.append("rect")
+     	.attr("width", 100)
+     	.attr("height", 3)
+     	.attr("x", $("#"+type+"key").width() - 230)
+     	.attr("y", 15)
+     	.attr("fill","white")
+
+     key.append("rect")
+     	.attr("width", 70)
+     	.attr("height", 3)
+     	.attr("x", $("#"+type+"key").width() - 230)
+     	.attr("y", 15)
+     	.attr("fill","#F9543E")
+
 	var fl = type.substring(0, 1); //first letter
 	for (i=0; i< data[type].length; i++){
 		var div = document.createElement('div');
