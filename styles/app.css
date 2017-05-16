@@ -72,6 +72,8 @@ button {
   -o-transition: all 1s ease;  
   -ms-transition: all 1s ease;  
   transition: all 1s ease;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .circlebg {
@@ -103,6 +105,10 @@ button {
 
 .grids {
   padding: 10px;
+}
+
+.volume, .delta {
+  display: none;
 }
 
 /* Footer */
