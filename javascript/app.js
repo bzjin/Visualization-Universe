@@ -19,7 +19,7 @@ function makeGrids(data, type){
 	var fl = type.substring(0, 1); //first letter
 	for (i=0; i< data[type].length; i++){
 		var div = document.createElement('div');
-		div.setAttribute('class', 'col-lg-2 col-md-3 col-sm-4 col-xs-6 grids grid-item ' + type + "grids"); 
+		div.setAttribute('class', 'grids grid-item ' + type + "grids"); 
 		div.setAttribute('id', fl + i); 
 
 		var str = type + "grid";
@@ -118,7 +118,7 @@ function makeGrids(data, type){
 	var h = $("#"+fl+"1").height();
 	var pos = $("#"+fl+"1").position();
 
-	d3.select("#alphabetize" + type).on("click", function(){
+	/*d3.select("#alphabetize" + type).on("click", function(){
 		d3.selectAll("."+type+"grids")
 			.remove()
 		if (tf_alpha == 0) {
@@ -205,10 +205,10 @@ function makeGrids(data, type){
 		}
 
 	makeGrids(data, type)
-	})
+	})*/
 
 }
-
+/*
 $(function() {
     $.ajax({
         url: 'http://www.google.com/trends/fetchComponent?q='+"book"+','+"barchart"+'&cid=TIMESERIES_GRAPH_0&export=3',
@@ -228,7 +228,7 @@ $(function() {
             console.log("Error: " + status + " " + error);
         }
     });
-});
+});*/
 
 
 
