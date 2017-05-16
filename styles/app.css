@@ -29,15 +29,13 @@ h2 {
 }
 
 h3 {
-  font-size: 14px;
-  font-weight: 700;
-  font-style: italic;
+  font-size: 28px;
+  font-weight: 300;
 }
 
 h4 {
-  font-size: 14px;
-  font-weight: 700;
-  font-style: italic;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 p { 
@@ -111,5 +109,20 @@ button {
 
 .volume, .delta {
   display: none;
+}
+
+.empty { 
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+  background-image: url('../assets/empty.gif');
+}  
+
+.page {
+  margin-top: 100px;
+  text-align: left;
 }
 
