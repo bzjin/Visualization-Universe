@@ -19,11 +19,13 @@ function makeGrids(data, type){
 	var fl = type.substring(0, 1); //first letter
 	for (i=0; i< data[type].length; i++){
 		var div = document.createElement('div');
-		div.setAttribute('class', 'col-lg-2 col-md-3 col-sm-4 col-xs-6 grids ' + type + "grids"); 
+		div.setAttribute('class', 'col-lg-2 col-md-3 col-sm-4 col-xs-6 grids grid-item ' + type + "grids"); 
 		div.setAttribute('id', fl + i); 
 
-		document.getElementById(type).appendChild(div);
+		var str = type + "grid";
+		document.getElementById(str).appendChild(div);
 		
+		//Make PNG string to get image
 		var pngstring = "";
 		if (data[type][i].name.indexOf(' ') >= 0) {
 			pngstring = data[type][i].name.replace(/\s+/g, '-');
@@ -33,31 +35,21 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		/*var circle = d3.select("#"+fl+i).append("svg")
-			.attr("class", "circles")
-			.attr("width", width);
-
-		var bgcircle = circles.append("circle")
-		      .attr("id", "circle"+i)
-		      .attr("fill", "none")
-		      .attr("stroke", "#56435B")
-		      .attr("r", width/2 - 40)
-		      .attr("cx", 
-		      .attr("cy"
-		      .attr("d", line);*/
-
+		//Add all elements to div
 		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
-		$("div#"+fl+i).append("<p>"+data[type][i].name+"</p>");
+		$("div#"+fl+i).append("<p class='name'>"+data[type][i].name+"</p><p class='volume'>"+data[type][i]["average-popularity"]+"</p><p class='delta'>"+data[type][i]["popularity-delta"]+"</p>");
 		$("div#"+fl+i).append("<div class='progress'><div class='progress-bar' role='progressbar' aria-valuenow=" + data[type][i]["average-popularity"] +
 		  "aria-valuemin='0' aria-valuemax='100' style='width:" + data[type][i]["average-popularity"] + "%''><span class='sr-only'>70% Complete</span></div></div>");
 		
 		$('.circlebg').css({'height':$('.circlebg').width()+'px'});
 
+		//Sort data for sparkline
 		var linedata = [];
 		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
 			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
 		}
 
+		//Make sparkline
 		var svg = d3.select("#"+fl+i).append("svg")
 			.attr("class", "lines")
 			.attr("height", 35);
@@ -95,6 +87,33 @@ function makeGrids(data, type){
 		      .attr("cy", y(linedata[0].value))
 
 	}
+
+	//Init Isotope
+		var $grid = $('.isotopes'+type).isotope({
+		  itemSelector: '.grid-item',
+		  layoutMode: 'fitRows',
+		  getSortData: {
+		    name: '.name',
+		    volume: '.volume',
+		    delta: '.delta'
+		  }
+		});
+
+		$('#sorts' + type).on( 'click', 'button', function() {
+		  var sortByValue = $(this).attr('data-sort-by');
+		  $grid.isotope({ sortBy: sortByValue });
+		});
+
+
+		// change is-checked class on buttons
+		$('.button-group').each( function( i, buttonGroup ) {
+		  var $buttonGroup = $( buttonGroup );
+		  $buttonGroup.on( 'click', 'button', function() {
+		    $buttonGroup.find('.is-checked').removeClass('is-checked');
+		    $( this ).addClass('is-checked');
+		  });
+		});
+
 	var w = $("#"+fl+"1").width();
 	var h = $("#"+fl+"1").height();
 	var pos = $("#"+fl+"1").position();
