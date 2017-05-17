@@ -247,37 +247,5 @@ $(function() {
     });
 });
 
-$(".homeb").css({ height: $(".homeb").width()})
-$("#homepage").show();
-
-d3.select("#homebutton").on("click", function() {
-	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './');
-	$("#homepage").show();
-	$(".type").hide();
-})
-
-d3.selectAll("#chartsbutton").on("click", function() {
-	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './charts');
-	$("#homepage").hide();
-	$("#charts").show();
-	$("#books").hide();
-	$("#tools").hide();
-})
-
-d3.selectAll("#booksbutton").on("click", function() {
-	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './books');
-	$("#homepage").hide();
-	$("#charts").hide();
-	$("#books").show();
-	$("#tools").hide();
-})
-
-d3.selectAll("#toolsbutton").on("click", function() {
-	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './tools');
-	$("#homepage").hide();
-	$("#charts").hide();
-	$("#books").hide();
-	$("#tools").show();
-})
 
 
