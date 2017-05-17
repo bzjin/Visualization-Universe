@@ -4,7 +4,7 @@ $folder = $_POST["folder"];
 $title = ucwords(str_replace("-", " ", $sub_type));
 
 
-define( 'SUBTYPE_URL', "$folder/" . "$sub_type.php");
+define( 'SUBTYPE_URL', "$folder/" . "$sub_type.html");
 echo SUBTYPE_URL;
 $myFile = SUBTYPE_URL; // or .php 
 $fh = fopen($myFile, 'w'); // or die("error");  
@@ -18,25 +18,24 @@ $stringData = "<html>
 	<!-- Google Fonts --> <link href='../../styles/google-fonts.css' rel='stylesheet'>
   	<script src='../../lib/jquery-1.12.4.min.js'></script>
 	<script src='../../lib/jquery-1.12.1-ui.js'></script>
-	<!-- Bootstrap--> <script src='../../lib/bootstrap.min.js'></script> <link rel='stylesheet' href='../../styles/bootstrap.min.css'>
+	<!-- Bootstrap--> <script src='../../lib/bootstrap.min.js'></script> 
+	<link rel='stylesheet' href='../../styles/bootstrap.min.css'>
 	<link rel='stylesheet' href='../../styles/app.css'/>
+	<script src='../../javascript/pages.js'></script>
 </head>
-<script>
-
-</script>
 <body>
 	<div class='col-md-10 col-md-offset-1 page'>
 		<h3>$title</h3>
-		<p>{description}</p>
+		<p class='col-md-6'>{description}</p>
 
 		<h4> Popularity Over Time </h4>
-		{sparkline}
+		<div id='sparkline $sub_type $folder' class='col-md-6'></div>
 		
 		<h4> Used to Depict </h4>
-		{bar_charts}
+		<div id='bars' class='col-md-6'></div>
 
 		<h4> Name Variations </h4>
-		{related_searches}
+		<div id='related' class='col-md-6'></div>
 	</div>
 </body>
 </html>";   

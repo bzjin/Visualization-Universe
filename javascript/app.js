@@ -82,7 +82,7 @@ function makeGrids(data, type){
 			pngstring = data[type][i].name.replace(/\s+/g, '-');
 		} else { pngstring = data[type][i].name}
 
-		var href = 'pages/' + type + '/' + pngstring + ".php";
+		var href = 'pages/' + type + '/' + pngstring + ".html";
 
 		var margin = {top: 5, right: 20, bottom: 5, left: 20},
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
@@ -91,6 +91,33 @@ function makeGrids(data, type){
 		$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
 			//alert(result)
 		});
+
+		// Page.JS
+		/*
+		var content = document.querySelector('#content');
+		var p = document.querySelector('#page'); // current page indicator
+		page.base('/');	// "mount" it
+
+
+		// transition "middleware"
+		page('*', function(ctx,  next){
+		  if (ctx.init) {
+		    next();
+		  } else {
+		    content.classList.add('transition');
+		    setTimeout(function(){
+		      content.classList.remove('transition');
+		      next();
+		    }, 300);
+		  }
+		})
+
+		// regular pages
+		page('pages/'+type+'/'+pngstring, function(){
+		  p.textContent = '<h1>' + pngstring + "</h1>";
+		});
+
+		page()*/
 
 		//Add all elements to div
 		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
@@ -175,5 +202,25 @@ function makeGrids(data, type){
 	var w = $("#"+fl+"1").width();
 	var h = $("#"+fl+"1").height();
 	var pos = $("#"+fl+"1").position();
-
 }
+
+$(function() {
+    $.ajax({
+        url: 'https://www.googleapis.com/trends/v1beta/graph?terms=bar+chart&terms=pie+chart&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc',
+        type: 'GET',
+		xhrFields: {
+		    withCredentials: true
+		  },        
+        crossDomain: true,
+        dataType: 'json',
+        //headers: '[Does something go here?]',
+        success: function(data, status, xhr)
+        {
+            console.log(data);
+        },
+        error: function(xhr, status, error)
+        {
+            console.log("Error: " + status + " " + error);
+        }
+    });
+});
