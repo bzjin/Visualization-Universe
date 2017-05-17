@@ -126,3 +126,47 @@ button {
   text-align: left;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.8);
+  transition: opacity 500ms;
+  z-index:2;
+}
+
+.popup {
+  padding: 20px 0px 20px 20px; 
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  text-align: left;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: .9;
+  color: orange;
+}
+
+.popup .close:hover {
+  color: orange;
+}
+.popup .content {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.homeb{
+  width: 90%;
+  margin: 5%;
+}

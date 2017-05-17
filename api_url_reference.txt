@@ -1,0 +1,40 @@
+//name = term
+
+GET https://www.googleapis.com/trends/v1beta/graphAverages?restrictions.startDate=2012-05&terms=bar+chart&terms=scatterplot&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc
+
+//"average-popularity"
+{
+ "averages": [
+  {
+   "term": "bar chart",
+   "value": 75.0
+  },
+  {
+   "term": "scatterplot",
+   "value": 11.0
+  }
+ ]
+}
+
+//"search-volume-5yr"
+GET https://www.googleapis.com/trends/v1beta/graph?restrictions.startDate=2012-05&terms=bar+chart&terms=scatterplot&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc
+
+{
+ "lines": [
+  {
+   "term": "bar chart",
+   "points": [
+    {
+     "date": "2012-05-05",
+     "value": 70.0
+    },
+    {
+     "date": "2012-05-12",
+     "value": 66.0
+    },...
+
+//"popularity-delta"
+
+//"related-queries"
+
+//"related-topics"

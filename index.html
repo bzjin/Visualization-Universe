@@ -19,15 +19,30 @@
 
 <body>
 	<div class="col-md-10 col-md-offset-1">
-		<div id="charts" class="col-md-12 type">
 		
 		<!-- Pop-up content -->
 		<section id="content">
-	      <p id="page">empty content is gonna fly here!</p>
-
-	      <nav id = "nav"></nav>
+		  <ul>
+			  <button class="button" id="homebutton">home</button>
+			  <button class="button" id="chartsbutton">charts</button>
+			  <button class="button" id="booksbutton">books</button>
+			  <button class="button" id="toolsbutton">tools</button>
+	      </ul>
 	    </section>
 
+	    <div id="homepage" class="col-md-12">
+	    	<div class="col-md-4">
+	    	  <button class="button homeb" id="chartsbutton">charts</button>
+	    	 </div>
+	    	<div class="col-md-4">
+			  <button class="button homeb" id="booksbutton">books</button>
+			</div>
+	    	<div class="col-md-4">
+			  <button class="button homeb" id="toolsbutton">tools</button>
+			</div>
+	    </div>
+
+		<div id="charts" class="col-md-12 type">
 		<h2>Visualizing Data Visualization</h2>
 		<div class="col-md-12 grid">
 			<div id="sortscharts" class="button-group">  
@@ -55,20 +70,6 @@
 		</div>
 		</div>
 
-		<div id="people" class="col-md-12 type">
-		<h2>People of Data Visualization</h2>
-		<div class="col-md-12 grid">
-			<div id="sorts" class="button-group">
-			sort by
-			<button class="button" data-sort-by="name">name</button>
-  			<button class="button" data-sort-by="volume">volume</button>
-  			<button class="button" data-sort-by="delta">volume change</button>
-			</div>
-			<div class="col-md-12" id="peoplekey"></div>
-			<div class="col-md-12 isotopes" id="peoplegrid"></div>
-		</div>
-		</div>
-
 		<div id="tools" class="col-md-12 type">
 		<h2>Visualizing Tools</h2>
 		<div class="col-md-12 grid">
@@ -90,5 +91,6 @@
 	<script src="javascript/app.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="lib/page.js"></script>
+	<script src="lib/basic-page.js"></script>
 	<script src="lib/isotope.pkgd.js"></script> 
 </html>

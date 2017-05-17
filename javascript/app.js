@@ -1,3 +1,5 @@
+
+
 $.getJSON("data/sample.json", function(data) {
 	data.charts.sort(function(a,b) { 
 	    var nameA = a.name;
@@ -88,15 +90,15 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
+		//$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
 			//alert(result)
-		});
+		//});
 
 		// Page.JS
 		/*
 		var content = document.querySelector('#content');
 		var p = document.querySelector('#page'); // current page indicator
-		page.base('/');	// "mount" it
+		//page.base('/index');	// "mount" it
 
 
 		// transition "middleware"
@@ -113,21 +115,40 @@ function makeGrids(data, type){
 		})
 
 		// regular pages
-		page('pages/'+type+'/'+pngstring, function(){
+		page('/'+type+'/'+pngstring, function(){
 		  p.textContent = '<h1>' + pngstring + "</h1>";
 		});
 
 		page()*/
+		$.post('popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
+			$("#"+type).append(result);
+		});
 
 		//Add all elements to div
 		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
-		$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
+		//$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
+		$("div#"+fl+i).append("<span class='empty' id='empty"+fl+i+"_"+pngstring+"_"+type+"'></span>");
 		$("div#"+fl+i).append("<p class='name'>"+data[type][i].name+"</p><p class='volume'>"+data[type][i]["average-popularity"]+"</p><p class='delta'>"+data[type][i]["popularity-delta"]+"</p>");
 		$("div#"+fl+i).append("<div class='progress'><div class='progress-bar' role='progressbar' aria-valuenow=" + data[type][i]["average-popularity"] +
 		  "aria-valuemin='0' aria-valuemax='100' style='width:" + data[type][i]["average-popularity"] + "%''><span class='sr-only'>70% Complete</span></div></div>");
 		
 		$('.circlebg').css({'height':$('.circlebg').width()+'px'});
 
+		d3.select("#empty"+fl+i+"_"+pngstring+"_"+type).on("click", function(){
+			var namer = this.getAttribute("id").split(/[_]/)[1];
+			var bigtype = this.getAttribute("id").split(/[_]/)[2];
+			var url = window.location.href;
+			if (url.substring(url.length-1) == "/") { url = url.substring(0, url.length-1)}
+			window.history.pushState('object or string', 'THIS IS A NEW TITLE', url + "/" + namer);
+			$("."+namer).show();
+		})
+		/*
+		d3.selectAll(".close").on("click", function(){
+			console.log("hi")
+			window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' + pngstring);
+			$("."+pngstring).css({ "opacity": 0, "visibility": "hidden"})
+		})*/
+		
 		//Sort data for sparkline
 		var linedata = [];
 		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
@@ -204,6 +225,7 @@ function makeGrids(data, type){
 	var pos = $("#"+fl+"1").position();
 }
 
+
 $(function() {
     $.ajax({
         url: 'https://www.googleapis.com/trends/v1beta/graph?terms=bar+chart&terms=pie+chart&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc',
@@ -224,3 +246,38 @@ $(function() {
         }
     });
 });
+
+$(".homeb").css({ height: $(".homeb").width()})
+$("#homepage").show();
+
+d3.select("#homebutton").on("click", function() {
+	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './');
+	$("#homepage").show();
+	$(".type").hide();
+})
+
+d3.selectAll("#chartsbutton").on("click", function() {
+	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './charts');
+	$("#homepage").hide();
+	$("#charts").show();
+	$("#books").hide();
+	$("#tools").hide();
+})
+
+d3.selectAll("#booksbutton").on("click", function() {
+	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './books');
+	$("#homepage").hide();
+	$("#charts").hide();
+	$("#books").show();
+	$("#tools").hide();
+})
+
+d3.selectAll("#toolsbutton").on("click", function() {
+	window.history.pushState('object or string', 'THIS IS A NEW TITLE', './tools');
+	$("#homepage").hide();
+	$("#charts").hide();
+	$("#books").hide();
+	$("#tools").show();
+})
+
+
