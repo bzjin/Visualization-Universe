@@ -1,4 +1,6 @@
-$.getJSON("data/sample.json", function(data) {
+	$( document ).ready(function() {
+
+$.getJSON("../data/sample.json", function(data) {
 	data.charts.sort(function(a,b) { 
 	    var nameA = a.name;
 	    var nameB = b.name; 
@@ -118,12 +120,12 @@ function makeGrids(data, type){
 		});
 
 		page()*/
-		$.post('popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
+		$.post('../popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
 			$("#"+type).append(result);
 		});
 
 		//Add all elements to div
-		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='../assets/icons/"+pngstring+".png'>");
 		//$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
 		$("div#"+fl+i).append("<span class='empty' id='empty"+fl+i+"_"+pngstring+"_"+type+"'></span>");
 		$("div#"+fl+i).append("<p class='name'>"+data[type][i].name+"</p><p class='volume'>"+data[type][i]["average-popularity"]+"</p><p class='delta'>"+data[type][i]["popularity-delta"]+"</p>");
@@ -245,5 +247,6 @@ $(function() {
     });
 });
 
+})
 
 
