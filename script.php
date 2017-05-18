@@ -94,7 +94,11 @@ $stringData = "<!DOCTYPE html>
 		</div>
 		</div>
 
-		<div id='$sub_type' class='overlayf col-md-8 col-md-offset-2'>
+		
+	</div>
+</body>
+
+	<div id='$sub_type' class='overlayf col-md-10 col-md-offset-1'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
@@ -112,9 +116,6 @@ $stringData = "<!DOCTYPE html>
 			</div>
 		</div>
 		</div>
-
-	</div>
-</body>
 
 	<script>
 	$('#homepage').css({'visibility': 'hidden'});

@@ -4,7 +4,7 @@ $folder = $_POST["folder"];
 $title = ucwords(str_replace("-", " ", $sub_type));
 
 echo "
-<div id='$sub_type' class='overlay $sub_type col-md-8 col-md-offset-2'>
+<div id='$sub_type' class='overlay $sub_type'>
 	<div class='popup'>
 		<button class='close'>×</button>
 		<div class='content'>

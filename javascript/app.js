@@ -8,6 +8,7 @@ $.getJSON("data/sample.json", function(data) {
 	})
     makeGrids (data, "charts");
     makeGrids (data, "books");
+    makeGrids (data, "tools");
 
 })
 
@@ -166,8 +167,8 @@ function makeGrids(data, type){
 		  layoutMode: 'fitRows',
 		  getSortData: {
 		    name: '.name',
-		    volume: '.volume',
-		    delta: '.delta'
+		    volume: '.volume parseInt',
+		    delta: '.delta parseInt'
 		  }
 		});
 
@@ -215,4 +216,10 @@ $(function() {
 });
 
 
-
+for (j=0; j<25; j++){
+	var fun = [];
+	for (i=0; i<25; i++){
+		fun.push(Math.floor((Math.random() * 100) + 1));
+	}
+	console.log(fun);
+}

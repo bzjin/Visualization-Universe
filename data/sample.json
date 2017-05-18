@@ -1,53 +1,53 @@
 {
   "charts": [{
       "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
-      "popularity-delta": -22,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "pie chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 46,
-      "popularity-delta": -23,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "line graph", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 47,
-      "popularity-delta": -24,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "venn diagram", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 47,
-      "popularity-delta": -25,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "area chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 48,
+      "search-volume-5yr": [13, 49, 100, 3, 22, 20, 50, 38, 30, 31, 4, 86, 8, 73, 14, 34, 73, 89, 60, 40, 18, 92, 13, 76, 47], 
+      "average-popularity": 5,
       "popularity-delta": -26,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
+      "name": "pie chart", 
+      "search-volume-5yr": [81, 57, 39, 49, 12, 87, 79, 60, 34, 47, 91, 77, 16, 85, 50, 74, 8, 19, 12, 73, 89, 27, 45, 100, 23], 
+      "average-popularity": 10,
+      "popularity-delta": -27,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "line graph", 
+      "search-volume-5yr": [38, 34, 91, 79, 39, 73, 49, 10, 17, 86, 79, 21, 48, 25, 64, 19, 42, 85, 58, 3, 75, 49, 10, 6, 9], 
+      "average-popularity": 47,
+      "popularity-delta": -45,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "venn diagram", 
+      "search-volume-5yr":  [99, 92, 70, 1, 8, 7, 75, 27, 77, 97, 58, 35, 73, 72, 66, 91, 2, 50, 29, 40, 60, 37, 34, 6, 51], 
+      "average-popularity": 47,
+      "popularity-delta": -90,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "area chart", 
+      "search-volume-5yr":  [57, 29, 19, 85, 91, 44, 29, 31, 18, 79, 52, 31, 89, 15, 18, 61, 42, 36, 29, 72, 48, 95, 89, 99, 9], 
+      "average-popularity": 90,
+      "popularity-delta": 123,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
       "name": "bubble chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 49,
+      "search-volume-5yr": [45, 79, 78, 57, 89, 56, 32, 11, 14, 75, 18, 57, 100, 45, 19, 58, 99, 84, 98, 15, 13, 5, 94, 94, 21], 
+      "average-popularity": 56,
       "popularity-delta": -27,
       "related-searches": {
           "tools": 21,
@@ -56,7 +56,7 @@
     }, {
       "name": "bar chart", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 50,
+      "average-popularity": 78,
       "popularity-delta": -28,
       "related-searches": {
           "tools": 21,
@@ -64,8 +64,8 @@
       }
     }, {
       "name": "stream graph", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 51,
+      "search-volume-5yr": [16, 83, 4, 72, 13, 79, 77, 59, 34, 88, 84, 31, 94, 47, 47, 56, 48, 37, 85, 1, 36, 99, 3, 44, 14], 
+      "average-popularity": 97,
       "popularity-delta": -29,
       "related-searches": {
           "tools": 21,
@@ -75,8 +75,17 @@
 
   ], 
   "books": [{
-      "name": "bar chart", 
+      "name": "pretty good book", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
+      "average-popularity": 55,
+      "popularity-delta": -2,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "okay book", 
+      "search-volume-5yr": [61, 85, 15, 94, 48, 87, 64, 67, 76, 8, 67, 20, 10, 71, 60, 97, 81, 2, 9, 89, 15, 90, 25, 26, 9], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -84,44 +93,74 @@
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
+      "name": "another book", 
+      "search-volume-5yr": [78, 93, 71, 93, 62, 63, 26, 3, 39, 73, 32, 93, 7, 91, 54, 8, 18, 38, 81, 55, 63, 81, 83, 6, 12], 
+      "average-popularity": 25,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
+      "name": "just lorem ipsum", 
+      "search-volume-5yr": [16, 11, 73, 75, 48, 14, 85, 15, 17, 18, 90, 71, 47, 64, 16, 96, 70, 38, 45, 54, 25, 42, 26, 48, 82], 
+      "average-popularity": 10,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
-      "popularity-delta": -22,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "bar chart", 
+      "name": "book4", 
       "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
-      "average-popularity": 45,
+      "average-popularity": 95,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
+      "name": "book5", 
       "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
+      "average-popularity": 85,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "lonely bar chart", 
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
+      "average-popularity": 65,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "book6", 
+      "search-volume-5yr": [9, 65, 59, 20, 87, 27, 8, 28, 41, 11, 60, 8, 52, 91, 59, 79, 74, 72, 75, 54, 40, 43, 6, 82, 2], 
+      "average-popularity": 55,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }
+
+  ],
+  "tools": [{
+      "name": "Adobe Illustrator", 
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
+      "average-popularity": 55,
+      "popularity-delta": -2,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "TABLEAU", 
+      "search-volume-5yr": [61, 85, 15, 94, 48, 87, 64, 67, 76, 8, 67, 20, 10, 71, 60, 97, 81, 2, 9, 89, 15, 90, 25, 26, 9], 
       "average-popularity": 45,
       "popularity-delta": -22,
       "related-searches": {
@@ -129,18 +168,99 @@
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
+      "name": "D3.js", 
+      "search-volume-5yr": [78, 93, 71, 93, 62, 63, 26, 3, 39, 73, 32, 93, 7, 91, 54, 8, 18, 38, 81, 55, 63, 81, 83, 6, 12], 
+      "average-popularity": 25,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
+      "name": "Google Charts", 
+      "search-volume-5yr": [16, 11, 73, 75, 48, 14, 85, 15, 17, 18, 90, 71, 47, 64, 16, 96, 70, 38, 45, 54, 25, 42, 26, 48, 82], 
+      "average-popularity": 10,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Any Charts", 
+      "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
+      "average-popularity": 95,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "HightCharts", 
+      "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
+      "average-popularity": 85,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Infogram", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 45,
+      "average-popularity": 65,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Apple Numbers", 
+      "search-volume-5yr": [78, 93, 71, 93, 62, 63, 26, 3, 39, 73, 32, 93, 7, 91, 54, 8, 18, 38, 81, 55, 63, 81, 83, 6, 12], 
+      "average-popularity": 25,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Plotly", 
+      "search-volume-5yr": [16, 11, 73, 75, 48, 14, 85, 15, 17, 18, 90, 71, 47, 64, 16, 96, 70, 38, 45, 54, 25, 42, 26, 48, 82], 
+      "average-popularity": 10,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "PowerPoint", 
+      "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
+      "average-popularity": 95,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "R Language", 
+      "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
+      "average-popularity": 85,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Circos", 
+      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
+      "average-popularity": 65,
+      "popularity-delta": -22,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Creately", 
+      "search-volume-5yr": [9, 65, 59, 20, 87, 27, 8, 28, 41, 11, 60, 8, 52, 91, 59, 79, 74, 72, 75, 54, 40, 43, 6, 82, 2], 
+      "average-popularity": 55,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,

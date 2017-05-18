@@ -88,15 +88,15 @@
 	</div>
 </body>
 
-	<div id='bar-chart' class='overlayf col-md-10 col-md-offset-1'>
+	<div id='Google-Charts' class='overlayf col-md-10 col-md-offset-1'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
-				<h3>Bar Chart</h3>
+				<h3>Google Charts</h3>
 				<p>{description}</p>
 
 				<h4> Popularity Over Time </h4>
-				<div id='sparkline bar-chart books'></div>
+				<div id='sparkline Google-Charts tools'></div>
 				
 				<h4> Used to Depict </h4>
 				<div id='bars'></div>
@@ -110,7 +110,7 @@
 	<script>
 	$('#homepage').css({'visibility': 'hidden'});
 	$('.type').css({'visibility': 'hidden'});
-	$('#books').css({'visibility': 'visible'});
+	$('#tools').css({'visibility': 'visible'});
 
 	d3.selectAll('.overlayf').on('click', function(){
 		window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' );

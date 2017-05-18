@@ -10,6 +10,7 @@ $.getJSON("../data/sample.json", function(data) {
 	})
     makeGrids (data, "charts");
     makeGrids (data, "books");
+    makeGrids (data, "tools");
 
 })
 
@@ -200,8 +201,8 @@ function makeGrids(data, type){
 		  layoutMode: 'fitRows',
 		  getSortData: {
 		    name: '.name',
-		    volume: '.volume',
-		    delta: '.delta'
+		    volume: '.volume parseInt',
+		    delta: '.delta parseInt'
 		  }
 		});
 
