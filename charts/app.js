@@ -90,36 +90,6 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		//$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
-			//alert(result)
-		//});
-
-		// Page.JS
-		/*
-		var content = document.querySelector('#content');
-		var p = document.querySelector('#page'); // current page indicator
-		//page.base('/index');	// "mount" it
-
-
-		// transition "middleware"
-		page('*', function(ctx,  next){
-		  if (ctx.init) {
-		    next();
-		  } else {
-		    content.classList.add('transition');
-		    setTimeout(function(){
-		      content.classList.remove('transition');
-		      next();
-		    }, 300);
-		  }
-		})
-
-		// regular pages
-		page('/'+type+'/'+pngstring, function(){
-		  p.textContent = '<h1>' + pngstring + "</h1>";
-		});
-
-		page()*/
 		$.post('../popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
 			$("#"+type).append(result);
 		});
@@ -211,13 +181,20 @@ function makeGrids(data, type){
 		});
 
 
-		// change is-checked class on buttons
-		$('.button-group').each( function( i, buttonGroup ) {
-		  var $buttonGroup = $( buttonGroup );
-		  $buttonGroup.on( 'click', 'button', function() {
-		    $buttonGroup.find('.is-checked').removeClass('is-checked');
-		    $( this ).addClass('is-checked');
-		  });
+		$sorts = $('#sorts'+type).on('click','button', function() {
+		  	  var sortByValue = $(this).attr('data-sort-by');
+		  	//Bind sort button click
+			  var $this = $( this );
+
+			  if ( $this.is('.is-checked') ) {
+			  	console.log("if")
+			    $grid.isotope({ sortBy: sortByValue, sortAscending: false }); //Sort ascendingly
+			  } else {
+			  	console.log("else")
+			    $grid.isotope({ sortBy: sortByValue, sortAscending: true }); //Sort descendingly
+			  }
+			 $this.toggleClass('is-checked');
+
 		});
 
 	var w = $("#"+fl+"1").width();

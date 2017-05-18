@@ -211,13 +211,20 @@ function makeGrids(data, type){
 		});
 
 
-		// change is-checked class on buttons
-		$('.button-group').each( function( i, buttonGroup ) {
-		  var $buttonGroup = $( buttonGroup );
-		  $buttonGroup.on( 'click', 'button', function() {
-		    $buttonGroup.find('.is-checked').removeClass('is-checked');
-		    $( this ).addClass('is-checked');
-		  });
+		$sorts = $('#sorts'+type).on('click','button', function() {
+		  	  var sortByValue = $(this).attr('data-sort-by');
+		  	//Bind sort button click
+			  var $this = $( this );
+
+			  if ( $this.is('.is-checked') ) {
+			  	console.log("if")
+			    $grid.isotope({ sortBy: sortByValue, sortAscending: false }); //Sort ascendingly
+			  } else {
+			  	console.log("else")
+			    $grid.isotope({ sortBy: sortByValue, sortAscending: true }); //Sort descendingly
+			  }
+			 $this.toggleClass('is-checked');
+
 		});
 
 	var w = $("#"+fl+"1").width();
