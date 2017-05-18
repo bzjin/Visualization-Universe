@@ -88,38 +88,12 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		//$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
-			//alert(result)
-		//});
-
-		// Page.JS
-		/*
-		var content = document.querySelector('#content');
-		var p = document.querySelector('#page'); // current page indicator
-		//page.base('/index');	// "mount" it
-
-
-		// transition "middleware"
-		page('*', function(ctx,  next){
-		  if (ctx.init) {
-		    next();
-		  } else {
-		    content.classList.add('transition');
-		    setTimeout(function(){
-		      content.classList.remove('transition');
-		      next();
-		    }, 300);
-		  }
-		})
-
-		// regular pages
-		page('/'+type+'/'+pngstring, function(){
-		  p.textContent = '<h1>' + pngstring + "</h1>";
-		});
-
-		page()*/
 		$.post('popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
 			$("#"+type).append(result);
+		});
+
+		$.post('script.php', { sub_type: pngstring, folder: type }, function(result) { 
+			//alert(result)
 		});
 
 		//Add all elements to div
@@ -140,12 +114,6 @@ function makeGrids(data, type){
 			window.history.pushState('object or string', 'THIS IS A NEW TITLE', url + "/" + namer);
 			$("."+namer).show();
 		})
-		/*
-		d3.selectAll(".close").on("click", function(){
-			console.log("hi")
-			window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' + pngstring);
-			$("."+pngstring).css({ "opacity": 0, "visibility": "hidden"})
-		})*/
 		
 		//Sort data for sparkline
 		var linedata = [];

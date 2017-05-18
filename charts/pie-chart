@@ -1,14 +1,4 @@
-<?php
-$sub_type = $_POST["sub_type"];
-$folder = $_POST["folder"];
-$title = ucwords(str_replace("-", " ", $sub_type));
-
-
-define( 'SUBTYPE_URL', "$folder/" . "$sub_type");
-echo SUBTYPE_URL;
-$myFile = SUBTYPE_URL; // or .php 
-$fh = fopen($myFile, 'w'); // or die("error");  
-$stringData = "<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 
@@ -94,15 +84,15 @@ $stringData = "<!DOCTYPE html>
 		</div>
 		</div>
 
-		<div id='$sub_type' class='overlayf col-md-8 col-md-offset-2'>
+		<div id='pie-chart' class='overlayf col-md-8 col-md-offset-2'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
-				<h3>$title</h3>
+				<h3>Pie Chart</h3>
 				<p>{description}</p>
 
 				<h4> Popularity Over Time </h4>
-				<div id='sparkline $sub_type $folder'></div>
+				<div id='sparkline pie-chart charts'></div>
 				
 				<h4> Used to Depict </h4>
 				<div id='bars'></div>
@@ -119,7 +109,7 @@ $stringData = "<!DOCTYPE html>
 	<script>
 	$('#homepage').css({'visibility': 'hidden'});
 	$('.type').css({'visibility': 'hidden'});
-	$('#$folder').css({'visibility': 'visible'});
+	$('#charts').css({'visibility': 'visible'});
 
 	d3.selectAll('.overlayf').on('click', function(){
 		window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' );
@@ -131,6 +121,4 @@ $stringData = "<!DOCTYPE html>
 	<script src='../javascript/buttons.js'></script>
 	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
 	<script src='../lib/isotope.pkgd.js'></script> 
-</html>";   
-fwrite($fh, $stringData);
-?>
+</html>
