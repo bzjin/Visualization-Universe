@@ -54,13 +54,67 @@
           "plot": 15
       }
     }, {
-      "name": "bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 78,
-      "popularity-delta": -28,
+      "name": "sparkline",
+      "search-volume-5yr": [32, 34, 12, 55, 15, 33, 23, 66, 34, 90, 34, 21],
+      "average-popularity": 31,
+      "popularity-delta": -10,
       "related-searches": {
           "tools": 21,
           "plot": 15
+      }
+    }, {
+      "name": "fan chart",
+      "search-volume-5yr": [32, 134, 12, 55, 25, 33, 23, 66, 54, 90, 34, 81],
+      "average-popularity": 18,
+      "popularity-delta": -234,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "fan chart",
+      "search-volume-5yr": [32, 134, 12, 55, 25, 33, 23, 66, 54, 90, 34, 81],
+      "average-popularity": 18,
+      "popularity-delta": -78,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "windrose chart",
+      "search-volume-5yr": [32, 134, 12, 55, 25, 33, 23, 66, 54, 90, 34, 81],
+      "average-popularity": 28,
+      "popularity-delta": 23,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "time series",
+      "search-volume-5yr": [12, 134, 12, 25, 25, 33, 23, 66, 54, 60, 34, 41],
+      "average-popularity": 39,
+      "popularity-delta": 33,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "scatter plot",
+      "search-volume-5yr": [52, 34, 12, 55, 25, 33, 23, 66, 54, 70, 34, 81],
+      "average-popularity": 7,
+      "popularity-delta": -23,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "timeline",
+      "search-volume-5yr": [12, 14, 12, 55, 25, 33, 73, 66, 54, 90, 94, 81],
+      "average-popularity": 58,
+      "popularity-delta": 78,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
       }
     }, {
       "name": "stream graph", 
@@ -75,8 +129,8 @@
 
   ], 
   "books": [{
-      "name": "pretty good book", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
+      "name": "Information is Beautiful",
+      "search-volume-5yr": [22, 94, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81],
       "average-popularity": 55,
       "popularity-delta": -2,
       "related-searches": {
@@ -84,7 +138,7 @@
           "plot": 15
       }
     }, {
-      "name": "okay book", 
+      "name": "Information Graphics",
       "search-volume-5yr": [61, 85, 15, 94, 48, 87, 64, 67, 76, 8, 67, 20, 10, 71, 60, 97, 81, 2, 9, 89, 15, 90, 25, 26, 9], 
       "average-popularity": 45,
       "popularity-delta": -22,
@@ -93,8 +147,26 @@
           "plot": 15
       }
     }, {
-      "name": "another book", 
+      "name": "The Visual Display of Quantitative Info",
       "search-volume-5yr": [78, 93, 71, 93, 62, 63, 26, 3, 39, 73, 32, 93, 7, 91, 54, 8, 18, 38, 81, 55, 63, 81, 83, 6, 12], 
+      "average-popularity": 75,
+      "popularity-delta": 42,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "How to Lie With Statistics",
+      "search-volume-5yr": [16, 11, 73, 75, 48, 14, 85, 15, 17, 18, 90, 71, 47, 64, 16, 96, 70, 38, 45, 54, 25, 42, 26, 48, 82], 
+      "average-popularity": 40,
+      "popularity-delta": -62,
+      "related-searches": {
+          "tools": 21,
+          "plot": 15
+      }
+    }, {
+      "name": "Cartographies of Time",
+      "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
       "average-popularity": 25,
       "popularity-delta": -22,
       "related-searches": {
@@ -102,46 +174,46 @@
           "plot": 15
       }
     }, {
-      "name": "just lorem ipsum", 
-      "search-volume-5yr": [16, 11, 73, 75, 48, 14, 85, 15, 17, 18, 90, 71, 47, 64, 16, 96, 70, 38, 45, 54, 25, 42, 26, 48, 82], 
-      "average-popularity": 10,
-      "popularity-delta": -22,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "book4", 
-      "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
-      "average-popularity": 95,
-      "popularity-delta": -22,
-      "related-searches": {
-          "tools": 21,
-          "plot": 15
-      }
-    }, {
-      "name": "book5", 
+      "name": "Cool Infographics",
       "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
-      "average-popularity": 85,
+      "average-popularity": 15,
       "popularity-delta": -22,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "lonely bar chart", 
-      "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 65,
-      "popularity-delta": -22,
+      "name": "R in a Nutshell",
+      "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12],
+      "average-popularity": 45,
+      "popularity-delta": -62,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "Semiology of Graphics",
+      "search-volume-5yr": [22, 64, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81],
+      "average-popularity": 35,
+      "popularity-delta": -12,
       "related-searches": {
           "tools": 21,
           "plot": 15
       }
     }, {
-      "name": "book6", 
+      "name": "The Book of Trees",
+      "search-volume-5yr": [22, 34, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81],
+      "average-popularity": 25,
+      "popularity-delta": 22,
+      "related-searches": {
+        "tools": 21,
+        "plot": 15
+      }
+    }, {
+      "name": "The Functional Art",
       "search-volume-5yr": [9, 65, 59, 20, 87, 27, 8, 28, 41, 11, 60, 8, 52, 91, 59, 79, 74, 72, 75, 54, 40, 43, 6, 82, 2], 
-      "average-popularity": 55,
-      "popularity-delta": -22,
+      "average-popularity": 75,
+      "popularity-delta": 32,
       "related-searches": {
           "tools": 21,
           "plot": 15
@@ -152,7 +224,7 @@
   "tools": [{
       "name": "Adobe Illustrator", 
       "search-volume-5yr": [22, 134, 12, 55, 15, 33, 23, 66, 34, 90, 34, 81], 
-      "average-popularity": 55,
+      "average-popularity": 35,
       "popularity-delta": -2,
       "related-searches": {
           "tools": 21,
@@ -186,7 +258,7 @@
           "plot": 15
       }
     }, {
-      "name": "Any Charts", 
+      "name": "AnyChart",
       "search-volume-5yr": [78, 1, 2, 4, 5, 6, 8, 45, 23, 45], 
       "average-popularity": 95,
       "popularity-delta": -22,
@@ -195,7 +267,7 @@
           "plot": 15
       }
     }, {
-      "name": "HightCharts", 
+      "name": "HighCharts",
       "search-volume-5yr": [33, 33,44,55,6,7,8,9,233,11,12], 
       "average-popularity": 85,
       "popularity-delta": -22,
