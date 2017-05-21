@@ -193,33 +193,93 @@ function makeGrids(data, type){
 	var pos = $("#"+fl+"1").position();
 }
 
+var data_api = {"charts":[], "books":[], "tools":[]};
 
-$(function() {
-    $.ajax({
-        url: 'https://www.googleapis.com/trends/v1beta/graph?terms=bar+chart&terms=pie+chart&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc',
-        type: 'GET',
-		xhrFields: {
-		    withCredentials: true
-		  },        
-        crossDomain: true,
-        dataType: 'json',
-        //headers: '[Does something go here?]',
-        success: function(data, status, xhr)
-        {
-            console.log(data);
-        },
-        error: function(xhr, status, error)
-        {
-            console.log("Error: " + status + " " + error);
-        }
-    });
-});
+function use_api (type){
+	d3.csv("data/samplequeries.csv", function(results){
+		var termstring = "";
+		//for (i=0; i<3; i++){
+		results.forEach(function(d){   
+			//var plussigns = results[i].sub_type.replace(/\s+/g, '+');
+			if (d.type == type){
+				var plussigns = d.sub_type.replace(/\s+/g, '+');
+				plussigns = plussigns.replace(/:\s*/g, "%3a");
+				plussigns = plussigns.replace(/,/g , "%2C");
 
+				termstring = "terms=" + plussigns + "&"; 
+				termquery = "term=" + plussigns + "&"; 
+			
+			var findtrends = "https://www.googleapis.com/trends/v1beta/graph?" + termstring + "key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc";
+			var topqueries = "https://www.googleapis.com/trends/v1beta/topQueries?" + termquery + "key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc"
 
-for (j=0; j<25; j++){
-	var fun = [];
-	for (i=0; i<25; i++){
-		fun.push(Math.floor((Math.random() * 100) + 1));
-	}
-	console.log(fun);
+			// Volume past five years
+			
+			$(function() {
+			    $.ajax({
+			        url: findtrends,
+			        type: 'GET',
+					xhrFields: {
+					    withCredentials: true
+					  },        
+			        crossDomain: true,
+			        dataType: 'json',
+			        //headers: '[Does something go here?]',
+			        success: function(data, status, xhr)
+			        {
+			        	var vol_array = [];
+			        	for (i=0; i< data.lines[0].points.length; i++){
+			        		vol_array.push(data.lines[0].points[i].value);
+			            }
+
+			            data_api[type].push({"name": data.lines[0].term, "search-volume-5yr": vol_array, "related-searches": [] });
+			        },
+			        error: function(xhr, status, error)
+			        {
+			        	//console.log(termstring);
+			            //console.log("Error: " + status + " " + error);
+			        }
+			    });
+			});
+
+			// Top Queries
+			$(function() {
+			    $.ajax({
+			        url: topqueries,
+			        type: 'GET',
+					xhrFields: {
+					    withCredentials: true
+					  },        
+			        crossDomain: true,
+			        dataType: 'json',
+			        //headers: '[Does something go here?]',
+			        success: function(data, status, xhr)
+			        {
+			        	var top_queries = [];
+			        	for (i=0; i< data.item.length; i++){
+			        		top_queries.push({"query": data.item[i].title, "volume": data.item[i].value});
+			            }
+
+			            data_api[type].forEach(function(j){
+			            	if (j.name == d.sub_type){
+			            		j.queries = top_queries;
+			            	}
+			            })
+			        },
+			        error: function(xhr, status, error)
+			        {
+			        	//console.log(termstring);
+			            //console.log("Error: " + status + " " + error);
+			        }
+			    });
+			});
+
+			}
+		})
+	})
+	console.log(data_api)
+
 }
+
+use_api("charts");
+use_api("books");
+use_api("tools");
