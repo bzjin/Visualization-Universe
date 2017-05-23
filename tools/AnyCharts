@@ -88,15 +88,15 @@
 	</div>
 </body>
 
-	<div id='Powerpoint' class='overlayf col-md-10 col-md-offset-1'>
+	<div id='AnyCharts' class='overlayf col-md-10 col-md-offset-1'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
-				<h3>Powerpoint</h3>
+				<h3>AnyCharts</h3>
 				<p>{description}</p>
 
 				<h4> Popularity Over Time </h4>
-				<div id='sparkline Powerpoint tools'></div>
+				<div id='sparkline AnyCharts tools'></div>
 				
 				<h4> Used to Depict </h4>
 				<div id='bars'></div>

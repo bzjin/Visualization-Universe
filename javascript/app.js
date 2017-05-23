@@ -1,4 +1,4 @@
-$.getJSON("data/sample.json", function(data) {
+$.getJSON("data/test.json", function(data) {
 	data.charts.sort(function(a,b) { 
 	    var nameA = a.name;
 	    var nameB = b.name; 
@@ -20,7 +20,7 @@ function makeGrids(data, type){
 	//Make key
 	var key = d3.select("#"+type+"key").append("svg")
 			.attr("class", "key")
-			.attr("height", 35)
+			.attr("height", 50)
 			.attr("width", "100%")
 			.style("overflow", "visible");
 
@@ -89,7 +89,24 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		$.post('popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
+		//Sort data for small sparkline
+		var linedata = [];
+		for (j=0; j<data[type][i]["search-volume-5yr"].length; j += 5){
+			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
+		}
+
+		//Sort data for pop-up sparkline
+		var biglinedata = [];
+		for (j=0; j<data[type][i]["search-volume-5yr"].length; j ++){
+			biglinedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
+		}
+
+		$.post('popuptemplate.php', { sub_type: pngstring, 
+										folder: type, 
+										linepoints: biglinedata, 
+										queries: data[type][i].queries,
+										topics: data[type][i].topics
+								  }, function(result) { 
 			$("#"+type).append(result);
 		});
 
@@ -98,7 +115,11 @@ function makeGrids(data, type){
 		});
 
 		//Add all elements to div
-		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+		if (type != "books"){
+			$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+		} else {
+			$("div#"+fl+i).append("<div class='bookbg'><img id='bookimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+		}
 		//$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
 		$("div#"+fl+i).append("<span class='empty' id='empty"+fl+i+"_"+pngstring+"_"+type+"'></span>");
 		$("div#"+fl+i).append("<p class='name'>"+data[type][i].name+"</p><p class='volume'>"+data[type][i]["average-popularity"]+"</p><p class='delta'>"+data[type][i]["popularity-delta"]+"</p>");
@@ -115,17 +136,11 @@ function makeGrids(data, type){
 			window.history.pushState('object or string', 'THIS IS A NEW TITLE', url + "/" + namer);
 			$("."+namer).show();
 		})
-		
-		//Sort data for sparkline
-		var linedata = [];
-		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
-			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
-		}
 
 		//Make sparkline
 		var svg = d3.select("#"+fl+i).append("svg")
 			.attr("class", "lines")
-			.attr("height", 35);
+			.attr("height", 50);
 
 		var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -133,7 +148,7 @@ function makeGrids(data, type){
 		    .range([margin.left, width - margin.right]);
 
 		var y = d3.scaleLinear()
-		    .range([height, 0]);
+		    .range([height - 10, 5]);
 
   		x.domain(d3.extent(linedata, function(d) { return d.index; }));
   		y.domain(d3.extent(linedata, function(d) { return d.value; }));
@@ -193,93 +208,3 @@ function makeGrids(data, type){
 	var pos = $("#"+fl+"1").position();
 }
 
-var data_api = {"charts":[], "books":[], "tools":[]};
-
-function use_api (type){
-	d3.csv("data/samplequeries.csv", function(results){
-		var termstring = "";
-		//for (i=0; i<3; i++){
-		results.forEach(function(d){   
-			//var plussigns = results[i].sub_type.replace(/\s+/g, '+');
-			if (d.type == type){
-				var plussigns = d.sub_type.replace(/\s+/g, '+');
-				plussigns = plussigns.replace(/:\s*/g, "%3a");
-				plussigns = plussigns.replace(/,/g , "%2C");
-
-				termstring = "terms=" + plussigns + "&"; 
-				termquery = "term=" + plussigns + "&"; 
-			
-			var findtrends = "https://www.googleapis.com/trends/v1beta/graph?" + termstring + "key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc";
-			var topqueries = "https://www.googleapis.com/trends/v1beta/topQueries?" + termquery + "key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc"
-
-			// Volume past five years
-			
-			$(function() {
-			    $.ajax({
-			        url: findtrends,
-			        type: 'GET',
-					xhrFields: {
-					    withCredentials: true
-					  },        
-			        crossDomain: true,
-			        dataType: 'json',
-			        //headers: '[Does something go here?]',
-			        success: function(data, status, xhr)
-			        {
-			        	var vol_array = [];
-			        	for (i=0; i< data.lines[0].points.length; i++){
-			        		vol_array.push(data.lines[0].points[i].value);
-			            }
-
-			            data_api[type].push({"name": data.lines[0].term, "search-volume-5yr": vol_array, "related-searches": [] });
-			        },
-			        error: function(xhr, status, error)
-			        {
-			        	//console.log(termstring);
-			            //console.log("Error: " + status + " " + error);
-			        }
-			    });
-			});
-
-			// Top Queries
-			$(function() {
-			    $.ajax({
-			        url: topqueries,
-			        type: 'GET',
-					xhrFields: {
-					    withCredentials: true
-					  },        
-			        crossDomain: true,
-			        dataType: 'json',
-			        //headers: '[Does something go here?]',
-			        success: function(data, status, xhr)
-			        {
-			        	var top_queries = [];
-			        	for (i=0; i< data.item.length; i++){
-			        		top_queries.push({"query": data.item[i].title, "volume": data.item[i].value});
-			            }
-
-			            data_api[type].forEach(function(j){
-			            	if (j.name == d.sub_type){
-			            		j.queries = top_queries;
-			            	}
-			            })
-			        },
-			        error: function(xhr, status, error)
-			        {
-			        	//console.log(termstring);
-			            //console.log("Error: " + status + " " + error);
-			        }
-			    });
-			});
-
-			}
-		})
-	})
-	console.log(data_api)
-
-}
-
-use_api("charts");
-use_api("books");
-use_api("tools");

@@ -88,7 +88,7 @@
 	</div>
 </body>
 
-	<div id='bar-chart' class='overlayf col-md-10 col-md-offset-1'>
+	<div id='Bar-chart' class='overlayf col-md-10 col-md-offset-1'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
@@ -96,7 +96,7 @@
 				<p>{description}</p>
 
 				<h4> Popularity Over Time </h4>
-				<div id='sparkline bar-chart charts'></div>
+				<div id='sparkline Bar-chart charts'></div>
 				
 				<h4> Used to Depict </h4>
 				<div id='bars'></div>

@@ -87,9 +87,28 @@ button {
     overflow: hidden;  
 }
 
+.bookbg {
+    margin: 0 20%;
+    display: block;
+    width: 60%;
+    height: auto;
+    background: none;
+    background-position: center center;
+    background-repeat:no-repeat;  
+    overflow: hidden;  
+}
+
 .circlebg img {
     width: 70%;
     padding-top: 15%; 
+}
+
+.bookbg img {
+    width: 70%;
+    padding-top: 15%; 
+    padding-bottom: 15%;
+     -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
 }
 
 .type {
@@ -157,7 +176,7 @@ button {
 }
 
 .popup {
-  background: rgba(0,0,0,.6);
+  background: rgba(0,0,0,.8);
   margin-top: 40px;
   padding: 20px;
   border-radius: 5px;

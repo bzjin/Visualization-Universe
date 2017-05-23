@@ -88,15 +88,15 @@
 	</div>
 </body>
 
-	<div id='Powerpoint' class='overlayf col-md-10 col-md-offset-1'>
+	<div id='Tableau-Your-Data-' class='overlayf col-md-10 col-md-offset-1'>
 		<div class='popup'>
 			<button class='close'>×</button>
 			<div class='content'>
-				<h3>Powerpoint</h3>
+				<h3>Tableau Your Data </h3>
 				<p>{description}</p>
 
 				<h4> Popularity Over Time </h4>
-				<div id='sparkline Powerpoint tools'></div>
+				<div id='sparkline Tableau-Your-Data- books'></div>
 				
 				<h4> Used to Depict </h4>
 				<div id='bars'></div>
@@ -110,7 +110,7 @@
 	<script>
 	$('#homepage').css({'visibility': 'hidden'});
 	$('.type').css({'visibility': 'hidden'});
-	$('#tools').css({'visibility': 'visible'});
+	$('#books').css({'visibility': 'visible'});
 
 	d3.selectAll('.overlayf').on('click', function(){
 		window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' );
