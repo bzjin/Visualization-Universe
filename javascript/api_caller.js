@@ -125,8 +125,18 @@ function use_api (type){
 		})
 	})
 }
+
 use_api("charts");
 use_api("tools");
 use_api("books");
 
-console.log(data_api);
+var str_json = JSON.stringify(data_api);
+
+data_api.charts.forEach(function(d){
+	console.log(d)
+})
+
+$.post('assets/savejson.php', { data_json: str_json}, function(result) { 
+	//alert(result)
+});
+

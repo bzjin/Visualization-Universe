@@ -1,6 +1,4 @@
-	$( document ).ready(function() {
-
-$.getJSON("../data/sample.json", function(data) {
+$.getJSON("../data/test.json", function(data) {
 	data.charts.sort(function(a,b) { 
 	    var nameA = a.name;
 	    var nameB = b.name; 
@@ -11,7 +9,6 @@ $.getJSON("../data/sample.json", function(data) {
     makeGrids (data, "charts");
     makeGrids (data, "books");
     makeGrids (data, "tools");
-
 })
 
 var tf_alpha = 1;
@@ -22,7 +19,7 @@ function makeGrids(data, type){
 	//Make key
 	var key = d3.select("#"+type+"key").append("svg")
 			.attr("class", "key")
-			.attr("height", 35)
+			.attr("height", 50)
 			.attr("width", "100%")
 			.style("overflow", "visible");
 
@@ -91,49 +88,44 @@ function makeGrids(data, type){
 		    width = $("#"+fl+i).width() - margin.left - margin.right,
 		    height = 30;
 
-		//$.post('pages/script.php', { sub_type: pngstring, folder: type }, function(result) { 
-			//alert(result)
-		//});
+		//Sort data for small sparkline
+		var linedata = [];
+		for (j=0; j<data[type][i]["search-volume-5yr"].length; j += 5){
+			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
+		}
 
-		// Page.JS
-		/*
-		var content = document.querySelector('#content');
-		var p = document.querySelector('#page'); // current page indicator
-		//page.base('/index');	// "mount" it
+		//Sort data for pop-up sparkline
+		var biglinedata = [];
+		for (j=0; j<data[type][i]["search-volume-5yr"].length; j ++){
+			biglinedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
+		}
 
-
-		// transition "middleware"
-		page('*', function(ctx,  next){
-		  if (ctx.init) {
-		    next();
-		  } else {
-		    content.classList.add('transition');
-		    setTimeout(function(){
-		      content.classList.remove('transition');
-		      next();
-		    }, 300);
-		  }
-		})
-
-		// regular pages
-		page('/'+type+'/'+pngstring, function(){
-		  p.textContent = '<h1>' + pngstring + "</h1>";
-		});
-
-		page()*/
-		$.post('../popuptemplate.php', { sub_type: pngstring, folder: type }, function(result) { 
+		$.post('../popuptemplate.php', { sub_type: pngstring, 
+										folder: type, 
+										linepoints: biglinedata, 
+										queries: data[type][i].queries,
+										topics: data[type][i].topics
+								  }, function(result) { 
 			$("#"+type).append(result);
 		});
 
+		$.post('../script.php', { sub_type: pngstring, folder: type }, function(result) { 
+			//alert(result)
+		});
+
 		//Add all elements to div
-		$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='../assets/icons/"+pngstring+".png'>");
+		if (type != "books"){
+			$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='../assets/icons/"+pngstring+".png'></div>");
+		} else {
+			$("div#"+fl+i).append("<div class='bookbg'><img id='bookimg"+i+"' src='../assets/icons/"+pngstring+".png'></div>");
+		}
 		//$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
 		$("div#"+fl+i).append("<span class='empty' id='empty"+fl+i+"_"+pngstring+"_"+type+"'></span>");
 		$("div#"+fl+i).append("<p class='name'>"+data[type][i].name+"</p><p class='volume'>"+data[type][i]["average-popularity"]+"</p><p class='delta'>"+data[type][i]["popularity-delta"]+"</p>");
 		$("div#"+fl+i).append("<div class='progress'><div class='progress-bar' role='progressbar' aria-valuenow=" + data[type][i]["average-popularity"] +
 		  "aria-valuemin='0' aria-valuemax='100' style='width:" + data[type][i]["average-popularity"] + "%''><span class='sr-only'>70% Complete</span></div></div>");
 		
-		$('.circlebg').css({'height':$('.circlebg').width()+"%"});
+		$('.circlebg').css({'height':$('.circlebg').width()+'px'});
 
 		d3.select("#empty"+fl+i+"_"+pngstring+"_"+type).on("click", function(){
 			var namer = this.getAttribute("id").split(/[_]/)[1];
@@ -143,23 +135,11 @@ function makeGrids(data, type){
 			window.history.pushState('object or string', 'THIS IS A NEW TITLE', url + "/" + namer);
 			$("."+namer).show();
 		})
-		/*
-		d3.selectAll(".close").on("click", function(){
-			console.log("hi")
-			window.history.pushState('object or string', 'THIS IS A NEW TITLE', './' + pngstring);
-			$("."+pngstring).css({ "opacity": 0, "visibility": "hidden"})
-		})*/
-		
-		//Sort data for sparkline
-		var linedata = [];
-		for (j=0; j<data[type][i]["search-volume-5yr"].length; j++){
-			linedata.push({"index": j, "value":data[type][i]["search-volume-5yr"][j]});
-		}
 
 		//Make sparkline
 		var svg = d3.select("#"+fl+i).append("svg")
 			.attr("class", "lines")
-			.attr("height", 35);
+			.attr("height", 50);
 
 		var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -167,7 +147,7 @@ function makeGrids(data, type){
 		    .range([margin.left, width - margin.right]);
 
 		var y = d3.scaleLinear()
-		    .range([height, 0]);
+		    .range([height - 10, 5]);
 
   		x.domain(d3.extent(linedata, function(d) { return d.index; }));
   		y.domain(d3.extent(linedata, function(d) { return d.value; }));
@@ -206,22 +186,14 @@ function makeGrids(data, type){
 		  }
 		});
 
-		$('#sorts' + type).on( 'click', 'button', function() {
-		  var sortByValue = $(this).attr('data-sort-by');
-		  $grid.isotope({ sortBy: sortByValue });
-		});
-
-
 		$sorts = $('#sorts'+type).on('click','button', function() {
 		  	  var sortByValue = $(this).attr('data-sort-by');
 		  	//Bind sort button click
 			  var $this = $( this );
 
 			  if ( $this.is('.is-checked') ) {
-			  	console.log("if")
 			    $grid.isotope({ sortBy: sortByValue, sortAscending: false }); //Sort ascendingly
 			  } else {
-			  	console.log("else")
 			    $grid.isotope({ sortBy: sortByValue, sortAscending: true }); //Sort descendingly
 			  }
 			 $this.toggleClass('is-checked');
@@ -232,29 +204,4 @@ function makeGrids(data, type){
 	var h = $("#"+fl+"1").height();
 	var pos = $("#"+fl+"1").position();
 }
-
-
-$(function() {
-    $.ajax({
-        url: 'https://www.googleapis.com/trends/v1beta/graph?terms=bar+chart&terms=pie+chart&key=AIzaSyCotwfmGjVpwkESwMesqFwfOLTFsbru-Lc',
-        type: 'GET',
-		xhrFields: {
-		    withCredentials: true
-		  },        
-        crossDomain: true,
-        dataType: 'json',
-        //headers: '[Does something go here?]',
-        success: function(data, status, xhr)
-        {
-            console.log(data);
-        },
-        error: function(xhr, status, error)
-        {
-            console.log("Error: " + status + " " + error);
-        }
-    });
-});
-
-})
-
 

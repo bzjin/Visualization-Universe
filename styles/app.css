@@ -93,6 +93,9 @@ button {
     width: 60%;
     height: auto;
     background: none;
+    background: #56435B;
+    -moz-border-radius: 10%;
+    -webkit-border-radius: 10%;
     background-position: center center;
     background-repeat:no-repeat;  
     overflow: hidden;  
@@ -107,8 +110,6 @@ button {
     width: 70%;
     padding-top: 15%; 
     padding-bottom: 15%;
-     -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
 }
 
 .type {

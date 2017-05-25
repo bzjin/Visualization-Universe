@@ -116,7 +116,6 @@ if (qarray != null) {
 	      .attr('y', function(d){
 	      	return yq(qarray.indexOf(d))})
 	      .attr('width', function(d){
-	      	console.log(d.volume, xq(d.volume));
 	      	return xq(+d.volume) - 200})
 	      .attr('height', 5)
 

@@ -116,9 +116,9 @@ function makeGrids(data, type){
 
 		//Add all elements to div
 		if (type != "books"){
-			$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+			$("div#"+fl+i).append("<div class='circlebg'><img id='bimg"+i+"' src='assets/icons/"+pngstring+".png'></div>");
 		} else {
-			$("div#"+fl+i).append("<div class='bookbg'><img id='bookimg"+i+"' src='assets/icons/"+pngstring+".png'>");
+			$("div#"+fl+i).append("<div class='bookbg'><img id='bookimg"+i+"' src='assets/icons/"+pngstring+".png'></div>");
 		}
 		//$("div#"+fl+i).append("<a href="+href+"><span class='empty'></span></a>");
 		$("div#"+fl+i).append("<span class='empty' id='empty"+fl+i+"_"+pngstring+"_"+type+"'></span>");
