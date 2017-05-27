@@ -1,6 +1,6 @@
 sub_type,type,author,subtitle
-Pie Chart,charts,null,null
-Venn Diagram,charts,null,null
+Pie chart,charts,null,null
+Venn diagram,charts,null,null
 Onion diagram,charts,null,null
 Circular chart,charts,null,null
 Bubble chart,charts,null,null
@@ -43,7 +43,7 @@ Lucidchart,tools,null,null
 Understanding the World,books,Taschen,The Atlas of Infographics
 The Visual Display of Quantitative Information,books,Edward R Tufte,null
 Understanding Comics,books,Scott Mccloud,The Invisible Art
-Cool Infographics Effective,books,Randy Krum,Communication with Data Visualization and Design
+Cool Infographics,books,Randy Krum,Effective Communication with Data Visualization and Design
 The Book of Trees,books,Manuel Lima,null
 The Functional Art,books,Alberto Cairo,null
 Information is Beautiful,books,David McCandless,null

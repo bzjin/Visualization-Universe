@@ -1,4 +1,4 @@
-var data_api = {"charts":[], "books":[], "tools":[]};
+data_api = {"charts":[], "books":[], "tools":[]};
 
 function use_api (type){
 	d3.csv("data/samplequeries.csv", function(results){
@@ -130,13 +130,4 @@ use_api("charts");
 use_api("tools");
 use_api("books");
 
-var str_json = JSON.stringify(data_api);
-
-data_api.charts.forEach(function(d){
-	console.log(d)
-})
-
-$.post('assets/savejson.php', { data_json: str_json}, function(result) { 
-	//alert(result)
-});
-
+console.log(data_api)

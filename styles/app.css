@@ -91,8 +91,7 @@ button {
     margin: 0 20%;
     display: block;
     width: 60%;
-    height: auto;
-    background: none;
+    height: 130px;
     background: #56435B;
     -moz-border-radius: 10%;
     -webkit-border-radius: 10%;
@@ -110,6 +109,7 @@ button {
     width: 70%;
     padding-top: 15%; 
     padding-bottom: 15%;
+    height: 130px;
 }
 
 .type {
@@ -130,6 +130,8 @@ button {
   padding: 10px;
   display: block;
   width: 175px;
+  height: auto;
+  clear:both;
 }
 
 .volume, .delta {

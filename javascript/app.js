@@ -1,14 +1,33 @@
 $.getJSON("data/test.json", function(data) {
-	data.charts.sort(function(a,b) { 
-	    var nameA = a.name;
-	    var nameB = b.name; 
-	    if (nameA < nameB) { return -1; }
-	    if (nameA > nameB) { return 1; }
-	    return 0; 
-	})
-    makeGrids (data, "charts");
-    makeGrids (data, "books");
-    makeGrids (data, "tools");
+	setTimeout(function(){
+		data_api.charts.sort(function(a,b) { 
+			    var nameA = a.name;
+			    var nameB = b.name; 
+			    if (nameA < nameB) { return -1; }
+			    if (nameA > nameB) { return 1; }
+			    return 0; 
+			})
+
+		data_api.books.sort(function(a,b) { 
+			    var nameA = a.name;
+			    var nameB = b.name; 
+			    if (nameA < nameB) { return -1; }
+			    if (nameA > nameB) { return 1; }
+			    return 0; 
+			})
+
+		data_api.tools.sort(function(a,b) { 
+			    var nameA = a.name;
+			    var nameB = b.name; 
+			    if (nameA < nameB) { return -1; }
+			    if (nameA > nameB) { return 1; }
+			    return 0; 
+			})
+		makeGrids (data_api, "charts");
+	    makeGrids (data_api, "books");
+	    makeGrids (data_api, "tools");
+
+    }, 3000)
 
 })
 
@@ -193,7 +212,7 @@ function makeGrids(data, type){
 			  var $this = $( this );
 
 			  if ( $this.is('.is-checked') ) {
-			  	console.log("if")
+			  	console.log($('#sorts'+type).attr("text"))
 			    $grid.isotope({ sortBy: sortByValue, sortAscending: false }); //Sort ascendingly
 			  } else {
 			  	console.log("else")
