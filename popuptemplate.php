@@ -10,22 +10,25 @@ $querymaker= json_encode($querypoints);
 $topicmaker= json_encode($topicpoints);
 
 $title = ucwords(str_replace("-", " ", $sub_type));
+$searchable = ucwords(str_replace("-", "%20", $sub_type));
 
 echo "
 <div id='$sub_type' class='overlay $sub_type'>
 	<div class='popup'>
 		<button class='close'>×</button>
 		<div class='content'>
-			<h3>$title</h3>
-			<p>{description}</p>
+			<h3 class='col-md-12'>$title</h3>
+			<div id='iconimg' class='popleft col-md-2'><img src='assets/icons/$sub_type.png'></div>
+			<div id='description' class='popleft col-md-8'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+				<p> <a class='toplink' href='https://trends.google.com/trends/explore?q=$searchable'> Read more </a> </p></div>
 
-			<h4> Popularity Over Time </h4>
-			<div id='sparkline$sub_type'></div>
+			<h4 class='col-md-12'> Popularity Over Time </h4>
+			<div id='sparkline$sub_type' class='sparkline'></div>
 			
-			<h4> Used to Depict </h4>
+			<h4 class='col-md-12'> Used to Depict </h4>
 			<div id='queries$sub_type'></div>
 
-			<h4> Name Variations </h4>
+			<h4 class='col-md-12'> Name Variations </h4>
 			<div id='topics$sub_type'></div>
 		</div>
 	</div>
@@ -47,25 +50,61 @@ var height = 200;
 var svg = d3.selectAll('#sparkline$sub_type').append('svg')
 			.attr('class', 'bigline')
 			.attr('height', height)
-			.attr('width', width);
+			.attr('width', width)
+			.style('overflow', 'visible');
 
-var g = svg.append('g').attr('transform', 'translate(20,10)');
+//var g = svg.append('g').attr('transform', 'translate(20,10)');
 
 var x = d3.scaleLinear()
-    .range([20, width - 20]);
+    .range([30, width - 10]);
+
+var month = d3.timeFormat('%B %Y');
+var thismonth = d3.timeFormat('%B');
+var today = new Date();
+var dayString = month(today).toString()
+var newYear = + dayString.substring(dayString.indexOf(' ')) - 5;
+
+svg.append('text')
+	.text(thismonth(today) + ' ' + newYear)
+	.attr('x', 30)
+	.attr('y', 195)
+	.style('fill', 'white')
+	.style('font-size', 10)
+
+svg.append('text')
+	.text(month(today))
+	.attr('x', width-10)
+	.attr('y', 195)
+	.style('fill', 'white')
+	.style('font-size', 10)
 
 var y = d3.scaleLinear()
-    .range([height - 10, 10]);
+    .range([height - 20, 20]);
 
 x.domain(d3.extent(tarray, function(d) { return +d.index; }));
-y.domain(d3.extent(tarray, function(d) { return +d.value; }));
+y.domain([0, 100]);
+
+var xAxis = d3.axisBottom(x).ticks(30);
+var yAxis = d3.axisLeft(y).tickSize(-570).tickValues([0,50,100]).ticks(4);
+
+svg.append('g').attr('class', 'axis')
+	.attr('transform', 'translate(0, 180)')
+	.call(xAxis)
+	.selectAll('text')
+		.remove();
+
+svg.append('g').attr('class', 'axis')
+	.attr('transform', 'translate(30, 0)')
+	.call(yAxis)
+		.selectAll('text')
+		.style('transform', 'translate(-20, 0)')
 
 var linefunc = d3.line()
     .x(function(d) { return x(d.index); })
     .y(function(d) { return y(d.value); })
 	.curve(d3.curveBasis);
 
-var sparks = g.append('path')
+var sparks = svg.append('path')
       .datum(tarray)
       .attr('id', 'line'+i)
       .attr('fill', 'none')
@@ -75,7 +114,7 @@ var sparks = g.append('path')
       .attr('stroke-width', 1.5)
       .attr('d', linefunc);
 
-g.append('circle')
+svg.append('circle')
       .attr('fill', '#FDBD00')
       .attr('r', 3)
       .attr('cx', x(tarray[0].index))
