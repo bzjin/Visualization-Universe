@@ -102,9 +102,18 @@ button {
 
 .circlebg img {
     width: 70%;
-    padding-top: 15%; 
+    padding-top: 15%;
 }
 
+#charts .grid-item .circlebg img, #charts .popup #iconimg img {
+  filter: grayscale(1) invert(1);
+}
+
+#tools .grid-item .circlebg img{
+  filter: grayscale(1);
+}
+
+iconimg
 .bookbg img {
     width: 70%;
     padding-top: 15%; 
