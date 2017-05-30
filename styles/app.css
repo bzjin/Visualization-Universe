@@ -244,10 +244,14 @@ p.name {
   width: 100%; 
 }
 
-a.toplink {
+a.toplink, a.bottomlink {
   color: white;
   font-weight: 700 !important;
   z-index: 999 !important;
+}
+
+a.bottomlink {
+  font-weight: normal !important;
 }
 
 .popleft {

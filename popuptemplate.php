@@ -24,11 +24,14 @@ echo "
 
 			<h4 class='col-md-12'> Popularity Over Time </h4>
 			<div id='sparkline$sub_type' class='sparkline'></div>
+			<p> <a class='bottomlink' href='https://trends.google.com/trends/explore?q=$searchable' target='_blank'> <strong>View more</strong> on Google Trends </a> </p></div>
+
+			<br />
 			
-			<h4 class='col-md-12'> Used to Depict </h4>
+			<h4 class='col-md-12'> Related Queries </h4>
 			<div id='queries$sub_type'></div>
 
-			<h4 class='col-md-12'> Name Variations </h4>
+			<h4 class='col-md-12'> Related Topics </h4>
 			<div id='topics$sub_type'></div>
 		</div>
 	</div>
